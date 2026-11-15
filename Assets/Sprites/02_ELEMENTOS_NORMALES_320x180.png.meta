@@ -1,0 +1,780 @@
+fileFormatVersion: 2
+guid: 659b3981654745e47a0a507318ce7ee7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -227571200193970880
+    second: 02_ELEMENTOS_NORMALES_320x180_0
+  - first:
+      213: -3366836944072108957
+    second: 02_ELEMENTOS_NORMALES_320x180_1
+  - first:
+      213: 4800910122981252988
+    second: 02_ELEMENTOS_NORMALES_320x180_2
+  - first:
+      213: -2633396791423213017
+    second: 02_ELEMENTOS_NORMALES_320x180_3
+  - first:
+      213: 6594566498124105980
+    second: 02_ELEMENTOS_NORMALES_320x180_4
+  - first:
+      213: 4007434884501467301
+    second: 02_ELEMENTOS_NORMALES_320x180_5
+  - first:
+      213: -3784034492843186503
+    second: 02_ELEMENTOS_NORMALES_320x180_6
+  - first:
+      213: -7462186207370058633
+    second: 02_ELEMENTOS_NORMALES_320x180_7
+  - first:
+      213: 4163090134200308307
+    second: 02_ELEMENTOS_NORMALES_320x180_8
+  - first:
+      213: -4057106306457440360
+    second: 02_ELEMENTOS_NORMALES_320x180_9
+  - first:
+      213: 2547009743725062323
+    second: 02_ELEMENTOS_NORMALES_320x180_10
+  - first:
+      213: 5795755215705742533
+    second: 02_ELEMENTOS_NORMALES_320x180_11
+  - first:
+      213: -884809727889959207
+    second: 02_ELEMENTOS_NORMALES_320x180_12
+  - first:
+      213: 7455736385203953787
+    second: 02_ELEMENTOS_NORMALES_320x180_13
+  - first:
+      213: 4160981988984928746
+    second: 02_ELEMENTOS_NORMALES_320x180_14
+  - first:
+      213: -3586440670298860263
+    second: 02_ELEMENTOS_NORMALES_320x180_15
+  - first:
+      213: -3781612785859057940
+    second: 02_ELEMENTOS_NORMALES_320x180_16
+  - first:
+      213: -8453852669749815731
+    second: 02_ELEMENTOS_NORMALES_320x180_17
+  - first:
+      213: -5865939772715017450
+    second: 02_ELEMENTOS_NORMALES_320x180_18
+  - first:
+      213: 4283610643574587243
+    second: 02_ELEMENTOS_NORMALES_320x180_19
+  - first:
+      213: -8051387199127967450
+    second: 02_ELEMENTOS_NORMALES_320x180_20
+  - first:
+      213: 1885436809798753395
+    second: 02_ELEMENTOS_NORMALES_320x180_21
+  - first:
+      213: 2322537088098574485
+    second: 02_ELEMENTOS_NORMALES_320x180_22
+  - first:
+      213: 2877349544432853236
+    second: 02_ELEMENTOS_NORMALES_320x180_23
+  - first:
+      213: 1966727180264211572
+    second: 02_ELEMENTOS_NORMALES_320x180_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 30
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 100
+        width: 128
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04d345bf23187dcf0800000000000000
+      internalID: -227571200193970880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3
+        width: 318
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3649beb33a79641d0800000000000000
+      internalID: -3366836944072108957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_2
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 116
+        width: 120
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7fdfde025240a240800000000000000
+      internalID: 4800910122981252988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_3
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 114
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 722e09e029b447bd0800000000000000
+      internalID: -2633396791423213017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_4
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 127
+        width: 28
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf801606a4b948b50800000000000000
+      internalID: 6594566498124105980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_5
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 117
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a0f73f8bc44d9730800000000000000
+      internalID: 4007434884501467301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_6
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 116
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b6a14c6da86c7bc0800000000000000
+      internalID: -3784034492843186503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_7
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 94
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77463e54e2df07890800000000000000
+      internalID: -7462186207370058633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_8
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 101
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35251f88b6446c930800000000000000
+      internalID: 4163090134200308307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_9
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 57
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89f6b9b4f4342b7c0800000000000000
+      internalID: -4057106306457440360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_10
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 34
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b8e0360edbc85320800000000000000
+      internalID: 2547009743725062323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_11
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 28
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cc124559a8ae6050800000000000000
+      internalID: 5795755215705742533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_12
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 23
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d61f4b8d3688b3f0800000000000000
+      internalID: -884809727889959207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_13
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 3
+        width: 22
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b70690b7db8187760800000000000000
+      internalID: 7455736385203953787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_14
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 13
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae9be3ab217ceb930800000000000000
+      internalID: 4160981988984928746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_15
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 17
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91592de46376a3ec0800000000000000
+      internalID: -3586440670298860263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_16
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 19
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce6abc40533058bc0800000000000000
+      internalID: -3781612785859057940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_17
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 17
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d46131c89c1edaa80800000000000000
+      internalID: -8453852669749815731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_18
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 8
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61b5c751bdef79ea0800000000000000
+      internalID: -5865939772715017450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_19
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 6
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6f785e4f21727b30800000000000000
+      internalID: 4283610643574587243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_20
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 3
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 629a9de100ab34090800000000000000
+      internalID: -8051387199127967450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_21
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 5
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37c108ef9ca6a2a10800000000000000
+      internalID: 1885436809798753395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_22
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 8
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59029c12d2f4b3020800000000000000
+      internalID: 2322537088098574485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_23
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 8
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f06d827a266ee720800000000000000
+      internalID: 2877349544432853236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_NORMALES_320x180_24
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47401c543f73b4b10800000000000000
+      internalID: 1966727180264211572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      02_ELEMENTOS_NORMALES_320x180_0: -227571200193970880
+      02_ELEMENTOS_NORMALES_320x180_1: -3366836944072108957
+      02_ELEMENTOS_NORMALES_320x180_10: 2547009743725062323
+      02_ELEMENTOS_NORMALES_320x180_11: 5795755215705742533
+      02_ELEMENTOS_NORMALES_320x180_12: -884809727889959207
+      02_ELEMENTOS_NORMALES_320x180_13: 7455736385203953787
+      02_ELEMENTOS_NORMALES_320x180_14: 4160981988984928746
+      02_ELEMENTOS_NORMALES_320x180_15: -3586440670298860263
+      02_ELEMENTOS_NORMALES_320x180_16: -3781612785859057940
+      02_ELEMENTOS_NORMALES_320x180_17: -8453852669749815731
+      02_ELEMENTOS_NORMALES_320x180_18: -5865939772715017450
+      02_ELEMENTOS_NORMALES_320x180_19: 4283610643574587243
+      02_ELEMENTOS_NORMALES_320x180_2: 4800910122981252988
+      02_ELEMENTOS_NORMALES_320x180_20: -8051387199127967450
+      02_ELEMENTOS_NORMALES_320x180_21: 1885436809798753395
+      02_ELEMENTOS_NORMALES_320x180_22: 2322537088098574485
+      02_ELEMENTOS_NORMALES_320x180_23: 2877349544432853236
+      02_ELEMENTOS_NORMALES_320x180_24: 1966727180264211572
+      02_ELEMENTOS_NORMALES_320x180_3: -2633396791423213017
+      02_ELEMENTOS_NORMALES_320x180_4: 6594566498124105980
+      02_ELEMENTOS_NORMALES_320x180_5: 4007434884501467301
+      02_ELEMENTOS_NORMALES_320x180_6: -3784034492843186503
+      02_ELEMENTOS_NORMALES_320x180_7: -7462186207370058633
+      02_ELEMENTOS_NORMALES_320x180_8: 4163090134200308307
+      02_ELEMENTOS_NORMALES_320x180_9: -4057106306457440360
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
