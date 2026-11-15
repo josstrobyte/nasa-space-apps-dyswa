@@ -2566,6 +2566,7 @@ MonoBehaviour:
   tecla: 19
   radio: 2
   alturaLetrero: 1.6
+  limpiezaPaneles: {fileID: 0}
   capaNormal: {fileID: 1133313345}
   capaFalla: {fileID: 1079330150}
   capaAlarma: {fileID: 1830122884}
@@ -3066,6 +3067,7 @@ MonoBehaviour:
   tecla: 19
   radio: 2
   alturaLetrero: 1.6
+  limpiezaPaneles: {fileID: 0}
   capaNormal: {fileID: 1312569505}
   capaFalla: {fileID: 2132645951}
   capaAlarma: {fileID: 171305618}
@@ -4760,6 +4762,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!1 &1473995211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1473995213}
+  - component: {fileID: 1473995212}
+  m_Layer: 0
+  m_Name: ControlMinijuegos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1473995212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473995211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15e1a75d41403e043a4d4ec613979b4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MinijuegoPaneles
+  empezarConPolvo: 1
+--- !u!4 &1473995213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473995211}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -45.3819, y: 24.56982, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1519390750
 GameObject:
   m_ObjectHideFlags: 0
@@ -6080,6 +6127,7 @@ MonoBehaviour:
   tecla: 19
   radio: 2
   alturaLetrero: 1.6
+  limpiezaPaneles: {fileID: 1473995212}
   capaNormal: {fileID: 0}
   capaFalla: {fileID: 0}
   capaAlarma: {fileID: 0}
@@ -6223,6 +6271,7 @@ MonoBehaviour:
   tecla: 19
   radio: 2
   alturaLetrero: 1.6
+  limpiezaPaneles: {fileID: 0}
   capaNormal: {fileID: 599653651}
   capaFalla: {fileID: 1642252610}
   capaAlarma: {fileID: 0}
@@ -7818,3 +7867,4 @@ SceneRoots:
   - {fileID: 1613960572}
   - {fileID: 1971399715}
   - {fileID: 1600133589}
+  - {fileID: 1473995213}

@@ -15,6 +15,9 @@ public class SalaInteractiva : MonoBehaviour
     [Tooltip("Altura del letrero sobre este objeto.")]
     [SerializeField] float alturaLetrero = 1.6f;
 
+    [Header("Minijuego de energía")]
+[SerializeField] MinijuegoPaneles limpiezaPaneles;
+
     [Header("Arte (opcional)")]
     [SerializeField] GameObject capaNormal;
     [SerializeField] GameObject capaFalla;
@@ -42,7 +45,20 @@ public class SalaInteractiva : MonoBehaviour
         if (cerca && gm.JuegoActivo && Keyboard.current != null &&
             Keyboard.current[tecla].wasPressedThisFrame)
         {
+            if (sala == Sala.Energia && limpiezaPaneles != null)
+{
+    if (!limpiezaPaneles.Abierto)
+    {
+        if (limpiezaPaneles.Sucios)
+            limpiezaPaneles.Abrir();
+        else
             gm.AlternarSala(sala);
+    }
+}
+else
+{
+    gm.AlternarSala(sala);
+}
         }
 
         ActualizarArte(gm);
@@ -100,7 +116,13 @@ public class SalaInteractiva : MonoBehaviour
         float escala = Screen.height / 720f;
         estilo.fontSize = Mathf.RoundToInt(24f * escala);
 
-        string texto = (gm.EstaActiva(sala) ? "[E] Apagar " : "[E] Encender ") + NombreSistema();
+        string texto =
+    sala == Sala.Energia &&
+    limpiezaPaneles != null &&
+    limpiezaPaneles.Sucios
+    ? "[E] Limpiar paneles"
+    : (gm.EstaActiva(sala) ? "[E] Apagar " : "[E] Encender ")
+      + NombreSistema();
 
         Vector3 p = camara.WorldToScreenPoint(transform.position + Vector3.up * alturaLetrero);
         float ancho = 420f * escala;
