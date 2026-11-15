@@ -10,6 +10,12 @@ public class MinijuegoOxigeno : MonoBehaviour
     [SerializeField, Range(0.05f, 0.4f)]
     float anchoZonaVerde = 0.20f;
 
+    [Header("Sprites del regulador")]
+[SerializeField] Texture2D marcoOxigeno;
+[SerializeField] Texture2D barraPresion;
+[SerializeField] Texture2D zonaOptima;
+[SerializeField] Texture2D agujaPresion;
+
     public bool Abierto { get; private set; }
 
     float posicionAguja;
@@ -97,79 +103,107 @@ public class MinijuegoOxigeno : MonoBehaviour
         }
     }
 
-    void OnGUI()
-    {
-        if (!Abierto) return;
+   
+void OnGUI()
+{
+    if (!Abierto) return;
 
-        GUI.depth = -60;
+    GUI.depth = -60;
 
-        GUI.color = new Color(0f, 0f, 0f, 0.85f);
-        GUI.DrawTexture(
-            new Rect(0, 0, Screen.width, Screen.height),
-            Texture2D.whiteTexture
-        );
+    // Oscurecer el juego detrás del regulador
+    GUI.color = new Color(0f, 0f, 0f, 0.85f);
+    GUI.DrawTexture(
+        new Rect(0, 0, Screen.width, Screen.height),
+        Texture2D.whiteTexture
+    );
 
-        float ancho = Mathf.Min(500f, Screen.width - 16f);
-        float alto = Mathf.Min(230f, Screen.height - 16f);
-        float x = (Screen.width - ancho) / 2f;
-        float y = (Screen.height - alto) / 2f;
+    GUI.color = Color.white;
 
-        GUI.color = Color.white;
-        GUI.Box(
-            new Rect(x, y, ancho, alto),
-            "REPARACION DEL REGULADOR DE OXIGENO"
-        );
+    // Comprobar que los sprites estén asignados
+    if (marcoOxigeno == null || barraPresion == null ||
+        zonaOptima == null || agujaPresion == null)
+        return;
 
-        float barraX = x + 24f;
-        float barraY = y + 68f;
-        float barraAncho = ancho - 48f;
+    // Escala entera para conservar el pixel art
+    float escala = Screen.width >= 640 && Screen.height >= 360
+        ? 2f : 1f;
 
-        GUI.color = new Color(0.2f, 0.25f, 0.3f);
-        GUI.DrawTexture(
-            new Rect(barraX, barraY, barraAncho, 30f),
-            Texture2D.whiteTexture
-        );
+    float x = (Screen.width - 320f * escala) / 2f;
+    float y = (Screen.height - 148f * escala) / 2f;
 
-        GUI.color = Color.green;
-        GUI.DrawTexture(
-            new Rect(
-                barraX + barraAncho * (0.5f - anchoZonaVerde / 2f),
-                barraY,
-                barraAncho * anchoZonaVerde,
-                30f
-            ),
-            Texture2D.whiteTexture
-        );
+    // 1. Marco
+    GUI.DrawTexture(
+        new Rect(x, y, 320f * escala, 148f * escala),
+        marcoOxigeno
+    );
 
-        GUI.color = Color.white;
-        GUI.DrawTexture(
-            new Rect(
-                barraX + barraAncho * posicionAguja - 2f,
-                barraY - 5f,
-                4f,
-                40f
-            ),
-            Texture2D.whiteTexture
-        );
+    // 2. Barra de presión
+    float barraX = x + 19f * escala;
+    float barraY = y + 78f * escala;
+    float anchoBarra = 288f;
 
-        GUI.Label(
-            new Rect(x + 24f, y + 108f, ancho - 48f, 26f),
-            "Calibraciones: " + aciertos + "/3"
-        );
+    GUI.DrawTexture(
+        new Rect(barraX, barraY,
+                 anchoBarra * escala, 20f * escala),
+        barraPresion
+    );
 
-        GUI.Label(
-            new Rect(x + 24f, y + 132f, ancho - 48f, 26f),
-            mensaje
-        );
+    // 3. Zona óptima
+    float anchoVerde = anchoBarra * anchoZonaVerde;
 
-        if (GUI.Button(
-            new Rect(x + ancho - 115f, y + alto - 40f, 90f, 28f),
-            "CERRAR"
-        ))
-        {
-            Cerrar();
-        }
+    GUI.DrawTexture(
+        new Rect(
+            barraX + (anchoBarra - anchoVerde) * escala / 2f,
+            barraY,
+            anchoVerde * escala,
+            20f * escala
+        ),
+        zonaOptima
+    );
 
-        GUI.color = Color.white;
-    }
+    // 4. Aguja móvil
+    float agujaX = barraX +
+        posicionAguja * (anchoBarra - 4f) * escala;
+
+    GUI.DrawTexture(
+        new Rect(
+            agujaX,
+            y + 72f * escala,
+            4f * escala,
+            28f * escala
+        ),
+        agujaPresion
+    );
+
+    // 5. Contador dinámico sobre el número del marco
+    GUI.color = new Color(0.09f, 0.14f, 0.21f);
+    GUI.DrawTexture(
+        new Rect(x + 66f * escala, y + 112f * escala,
+                 17f * escala, 9f * escala),
+        Texture2D.whiteTexture
+    );
+
+    GUI.color = Color.white;
+
+    GUIStyle estiloContador = new GUIStyle(GUI.skin.label);
+    estiloContador.fontSize = Mathf.RoundToInt(7f * escala);
+    estiloContador.fontStyle = FontStyle.Bold;
+    estiloContador.normal.textColor = Color.white;
+
+    GUI.Label(
+        new Rect(x + 66f * escala, y + 107f * escala,
+                 34f * escala, 19f * escala),
+        aciertos + "/3",
+        estiloContador
+    );
+
+    // Mensaje de calibración debajo del regulador
+    GUI.Label(
+        new Rect(x, y + 148f * escala + 8f,
+                 320f * escala, 25f),
+        mensaje + "  |  ESC para cerrar"
+    );
+
+    GUI.color = Color.white;
+}
 }

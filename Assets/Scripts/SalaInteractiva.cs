@@ -170,10 +170,15 @@ else
         float escala = Screen.height / 720f;
         estilo.fontSize = Mathf.RoundToInt(24f * escala);
 
-if (sala == Sala.Energia &&
-    limpiezaPaneles != null &&
-    limpiezaPaneles.Abierto)
+if ((sala == Sala.Energia &&
+     limpiezaPaneles != null &&
+     limpiezaPaneles.Abierto) ||
+    (sala == Sala.Soporte &&
+     reparacionOxigeno != null &&
+     reparacionOxigeno.Abierto))
+{
     return;
+}
 
 string texto =
     sala == Sala.Energia &&

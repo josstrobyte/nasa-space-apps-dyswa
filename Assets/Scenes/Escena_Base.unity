@@ -2121,6 +2121,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MinijuegoOxigeno
   velocidadAguja: 0.75
   anchoZonaVerde: 0.2
+  marcoOxigeno: {fileID: 2800000, guid: d1263dbc7b4a2714eb3c6614480f53e3, type: 3}
+  barraPresion: {fileID: 2800000, guid: 74d3f9292dcf9b84a8f835d2f7fa9aa1, type: 3}
+  zonaOptima: {fileID: 2800000, guid: 2734f40c56fd3d041aab803656d7f395, type: 3}
+  agujaPresion: {fileID: 2800000, guid: 0ce096b6aeedeeb4288cd7919dea5e56, type: 3}
 --- !u!1 &599653651
 GameObject:
   m_ObjectHideFlags: 0
