@@ -12,10 +12,14 @@ public class MinijuegoPaneles : MonoBehaviour
 
     bool[,] polvo = new bool[Filas, Columnas];
     int casillasLimpias;
+    bool habiaTormentaPolvo = false;
     float tiempoAnterior;
 
     public bool Abierto { get; private set; }
     public bool Sucios { get; private set; }
+    public float EficienciaPaneles =>
+    Mathf.Lerp(0.5f, 1f,
+        casillasLimpias / (float)(Filas * Columnas));
 
     public event Action LimpiezaCompletada;
 
@@ -58,13 +62,24 @@ public class MinijuegoPaneles : MonoBehaviour
     }
 
     void Update()
+{
+    GameManager gm = GameManager.Instancia;
+
+    bool hayTormenta = gm != null && gm.HayTormentaPolvo;
+
+    if (hayTormenta && !habiaTormentaPolvo)
     {
-        if (Abierto && Keyboard.current != null &&
-            Keyboard.current.escapeKey.wasPressedThisFrame)
-        {
-            Cerrar();
-        }
+        Ensuciar();
     }
+
+    habiaTormentaPolvo = hayTormenta;
+
+    if (Abierto && Keyboard.current != null &&
+        Keyboard.current.escapeKey.wasPressedThisFrame)
+    {
+        Cerrar();
+    }
+}
 
     void OnGUI()
     {
