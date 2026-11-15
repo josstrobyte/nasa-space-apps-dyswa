@@ -71,6 +71,8 @@ public class GameManager : MonoBehaviour
     [SerializeField, Range(0, 1)] float probTormentaSolar = 0.20f;
     [SerializeField, Min(1f)] float duracionTormenta = 20f;
     [SerializeField, Range(0, 1)] float eficienciaPanelesConPolvo = 0.5f;
+    [Header("Minijuego de paneles")]
+[SerializeField] MinijuegoPaneles minijuegoPaneles;
     [SerializeField, Min(1f)] float multiplicadorRadiacionSolar = 3f;
 
     [Header("Eventos de la base (averías, fugas, sorpresas)")]
@@ -147,6 +149,8 @@ public class GameManager : MonoBehaviour
         tiempoTormentaPolvo = 0f;
         tiempoTormentaSolar = 0f;
         tiempoNocheHelada = 0f;
+        if (minijuegoPaneles != null)
+    minijuegoPaneles.ReiniciarMinijuego();
         temporizadorEvento = primerEventoSegundos;
         ultimoEventoBase = -1;
         ContadorEventos = 0;
@@ -334,7 +338,8 @@ public class GameManager : MonoBehaviour
         bool invernadero = EstaActiva(Sala.Alimentos);
         bool escudos = EstaActiva(Sala.Radiacion);
 
-        float multPaneles = HayTormentaPolvo ? eficienciaPanelesConPolvo : 1f;
+float multPaneles = minijuegoPaneles != null
+    ? minijuegoPaneles.EficienciaPaneles : 1f;
         float multRadiacion = HayTormentaSolar ? multiplicadorRadiacionSolar : 1f;
         float paso = dt * velocidadBarras;
 
@@ -351,7 +356,9 @@ public class GameManager : MonoBehaviour
 
         float cambioSoporte = (soporte && hayLuz) ? tasas.soporteSube : -tasas.soporteBaja;
         float cambioComida = (invernadero && hayLuz) ? tasas.comidaSube : -tasas.comidaBaja;
-        float cambioRadiacion = (escudos && hayLuz) ? -tasas.radiacionBaja : tasas.radiacionSube * multRadiacion;
+float cambioRadiacion = (escudos && hayLuz)
+    ? (HayTormentaSolar ? 1.5f : 0.15f)
+    : tasas.radiacionSube * multRadiacion;
 
         SoporteVital = Limitar(SoporteVital + cambioSoporte * paso);
         Comida = Limitar(Comida + cambioComida * paso);

@@ -2059,6 +2059,53 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &569794408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 569794410}
+  - component: {fileID: 569794409}
+  m_Layer: 0
+  m_Name: ControlMinijuegos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &569794409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569794408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15e1a75d41403e043a4d4ec613979b4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MinijuegoPaneles
+  empezarConPolvo: 1
+  panelLimpio: {fileID: 2800000, guid: ee60d0c4fbc179643843c9f58e7c90bb, type: 3}
+  panelSucio: {fileID: 2800000, guid: 030103f984fb51f48a1219e5a83b4b89, type: 3}
+--- !u!4 &569794410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569794408}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -45.03404, y: 24.78241, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &599653651
 GameObject:
   m_ObjectHideFlags: 0
@@ -2483,6 +2530,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 731298872}
+  - component: {fileID: 731298873}
   m_Layer: 0
   m_Name: SalaEnergia
   m_TagString: Untagged
@@ -2518,6 +2566,21 @@ Transform:
   - {fileID: 104679170}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &731298873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731298871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15e1a75d41403e043a4d4ec613979b4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MinijuegoPaneles
+  empezarConPolvo: 1
+  panelLimpio: {fileID: 0}
+  panelSucio: {fileID: 0}
 --- !u!1 &766589450
 GameObject:
   m_ObjectHideFlags: 0
@@ -2566,6 +2629,7 @@ MonoBehaviour:
   tecla: 19
   mitadAnchoSala: 5.2
   alturaLetrero: 1.6
+  limpiezaPaneles: {fileID: 0}
   capaNormal: {fileID: 1133313345}
   capaFalla: {fileID: 1079330150}
   capaAlarma: {fileID: 171305618}
@@ -3066,6 +3130,7 @@ MonoBehaviour:
   tecla: 19
   mitadAnchoSala: 5.2
   alturaLetrero: 1.6
+  limpiezaPaneles: {fileID: 0}
   capaNormal: {fileID: 1312569505}
   capaFalla: {fileID: 2132645951}
   capaAlarma: {fileID: 171305618}
@@ -5225,40 +5290,41 @@ MonoBehaviour:
   totalSoles: 12
   duracionSolSegundos: 30
   velocidadBarras: 0.45
-  segundosEntreEventos: 25
-  primerEventoSegundos: 20
-  energiaInicial: 100
-  soporteInicial: 100
-  comidaInicial: 100
-  radiacionInicial: 100
+  segundosEntreEventos: 50
+  primerEventoSegundos: 35
+  energiaInicial: 75
+  soporteInicial: 80
+  comidaInicial: 65
+  radiacionInicial: 15
   generadorInicial: 1
   soporteActivoInicial: 1
   invernaderoInicial: 1
   escudosInicial: 1
   tasas:
-    produccionGenerador: 1.6
+    produccionGenerador: 5
     perdidaSinGenerador: 1.5
-    consumoSoporte: 1
-    consumoInvernadero: 1
-    consumoEscudos: 1.2
-    soporteSube: 1.5
+    consumoSoporte: 1.1
+    consumoInvernadero: 1.2
+    consumoEscudos: 1.6
+    soporteSube: 0.25
     soporteBaja: 2
-    comidaSube: 1.2
-    comidaBaja: 1.5
-    radiacionBaja: 2
-    radiacionSube: 1.5
+    comidaSube: 0.12
+    comidaBaja: 1.8
+    radiacionBaja: 0.6
+    radiacionSube: 1.8
   umbralCritico: 7.9
   histeresisAlerta: 5
   eventosActivos: 1
   probTormentaPolvo: 0.3
   probTormentaSolar: 0.4
-  duracionTormenta: 20
+  duracionTormenta: 12
   eficienciaPanelesConPolvo: 0.5
+  minijuegoPaneles: {fileID: 569794409}
   multiplicadorRadiacionSolar: 3
   probEventoBase: 0.8
-  perdidaPorFuga: 15
-  perdidaPorMoho: 20
-  energiaPorRemolino: 20
+  perdidaPorFuga: 18
+  perdidaPorMoho: 18
+  energiaPorRemolino: 10
   duracionNocheHelada: 15
   consumoNocheHelada: 1
 --- !u!4 &1586610383
@@ -6134,6 +6200,7 @@ MonoBehaviour:
   tecla: 19
   mitadAnchoSala: 5.2
   alturaLetrero: 1.6
+  limpiezaPaneles: {fileID: 569794409}
   capaNormal: {fileID: 896442763}
   capaFalla: {fileID: 963535139}
   capaAlarma: {fileID: 104679169}
@@ -6277,6 +6344,7 @@ MonoBehaviour:
   tecla: 19
   mitadAnchoSala: 5.2
   alturaLetrero: 1.6
+  limpiezaPaneles: {fileID: 0}
   capaNormal: {fileID: 599653651}
   capaFalla: {fileID: 1642252610}
   capaAlarma: {fileID: 0}
@@ -7872,3 +7940,4 @@ SceneRoots:
   - {fileID: 1613960572}
   - {fileID: 1971399715}
   - {fileID: 1600133589}
+  - {fileID: 569794410}
