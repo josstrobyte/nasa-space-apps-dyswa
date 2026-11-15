@@ -1,8 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// Ponlo en un objeto vacío colocado frente a la consola de cada sala.
-// Al acercarse y pulsar E, enciende o apaga el sistema de esa sala.
 public class SalaInteractiva : MonoBehaviour
 {
     [Header("Qué sala controla")]
@@ -10,9 +9,9 @@ public class SalaInteractiva : MonoBehaviour
 
     [Header("Interacción")]
     [SerializeField] Key tecla = Key.E;
-    [Tooltip("Qué tan cerca debe estar el astronauta (en unidades).")]
-    [SerializeField, Min(0.1f)] float radio = 2f;
-    [Tooltip("Altura del letrero sobre este objeto.")]
+    [Tooltip("La E funciona en toda la sala: esta es la mitad de su ancho (en unidades).")]
+    [SerializeField, Min(0.5f)] float mitadAnchoSala = 5.2f;
+    [Tooltip("Altura del letrero sobre el astronauta.")]
     [SerializeField] float alturaLetrero = 1.6f;
 
     [Header("Arte (opcional)")]
@@ -20,10 +19,48 @@ public class SalaInteractiva : MonoBehaviour
     [SerializeField] GameObject capaFalla;
     [SerializeField] GameObject capaAlarma;
 
+    public static readonly List<SalaInteractiva> Todas = new List<SalaInteractiva>();
+    public Sala SalaControlada => sala;
+
+    void OnEnable() { if (!Todas.Contains(this)) Todas.Add(this); }
+    void OnDisable() { Todas.Remove(this); }
+
     Transform jugador;
     Camera camara;
     GUIStyle estilo;
     bool cerca;
+    bool avisoJugador;
+
+    void Start()
+    {
+        // La consola se coloca sola en el centro de su sala, usando el arte como referencia.
+        Transform referencia = null;
+        if (capaNormal != null) referencia = capaNormal.transform;
+        else if (capaFalla != null) referencia = capaFalla.transform;
+        else if (transform.parent != null)
+        {
+            foreach (Transform hijo in transform.parent)
+            {
+                if (hijo != transform && hijo.name.Contains("FONDO_ESTATICO"))
+                {
+                    referencia = hijo;
+                    break;
+                }
+            }
+        }
+
+        if (referencia != null)
+        {
+            Vector3 centro = referencia.position;
+            centro.z = transform.position.z;
+            transform.position = centro;
+        }
+        else
+        {
+            Debug.LogWarning("La consola '" + name + "' no encontró el arte de su sala. " +
+                             "Arrastra la capa normal de la sala al campo Capa Normal.");
+        }
+    }
 
     void Update()
     {
@@ -34,10 +71,20 @@ public class SalaInteractiva : MonoBehaviour
         {
             GameObject obj = GameObject.FindGameObjectWithTag("Player");
             if (obj != null) jugador = obj.transform;
+            else if (!avisoJugador)
+            {
+                avisoJugador = true;
+                Debug.LogWarning("SalaInteractiva no encuentra al astronauta: el objeto Astronauta debe tener la etiqueta (Tag) Player.");
+            }
         }
 
-        cerca = jugador != null &&
-                Vector2.Distance(jugador.position, transform.position) <= radio;
+        cerca = false;
+        if (jugador != null)
+        {
+            float dx = Mathf.Abs(jugador.position.x - transform.position.x);
+            float dy = Mathf.Abs(jugador.position.y - transform.position.y);
+            cerca = dx <= mitadAnchoSala && dy <= 4f;
+        }
 
         if (cerca && gm.JuegoActivo && Keyboard.current != null &&
             Keyboard.current[tecla].wasPressedThisFrame)
@@ -102,7 +149,8 @@ public class SalaInteractiva : MonoBehaviour
 
         string texto = (gm.EstaActiva(sala) ? "[E] Apagar " : "[E] Encender ") + NombreSistema();
 
-        Vector3 p = camara.WorldToScreenPoint(transform.position + Vector3.up * alturaLetrero);
+        Vector3 basePos = jugador != null ? jugador.position : transform.position;
+        Vector3 p = camara.WorldToScreenPoint(basePos + Vector3.up * alturaLetrero);
         float ancho = 420f * escala;
         float alto = 44f * escala;
         Rect r = new Rect(p.x - ancho / 2f, Screen.height - p.y - alto / 2f, ancho, alto);
@@ -117,6 +165,6 @@ public class SalaInteractiva : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, radio);
+        Gizmos.DrawWireCube(transform.position, new Vector3(mitadAnchoSala * 2f, 8f, 0f));
     }
 }

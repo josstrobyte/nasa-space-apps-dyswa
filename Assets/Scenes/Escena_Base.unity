@@ -2559,16 +2559,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 766589450}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a9810c74bb4dcf459daa5a946882e10, type: 3}
+  m_Script: {fileID: 11500000, guid: 09c36318927b8de44bb210c24a751236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SalaInteractiva
   sala: 2
   tecla: 19
-  radio: 2
+  mitadAnchoSala: 5.2
   alturaLetrero: 1.6
   capaNormal: {fileID: 1133313345}
   capaFalla: {fileID: 1079330150}
-  capaAlarma: {fileID: 1830122884}
+  capaAlarma: {fileID: 171305618}
 --- !u!1 &783943798
 GameObject:
   m_ObjectHideFlags: 0
@@ -3059,12 +3059,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 948261030}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a9810c74bb4dcf459daa5a946882e10, type: 3}
+  m_Script: {fileID: 11500000, guid: 09c36318927b8de44bb210c24a751236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SalaInteractiva
   sala: 1
   tecla: 19
-  radio: 2
+  mitadAnchoSala: 5.2
   alturaLetrero: 1.6
   capaNormal: {fileID: 1312569505}
   capaFalla: {fileID: 2132645951}
@@ -5201,6 +5201,8 @@ GameObject:
   - component: {fileID: 1586610383}
   - component: {fileID: 1586610382}
   - component: {fileID: 1586610384}
+  - component: {fileID: 1586610386}
+  - component: {fileID: 1586610385}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5221,20 +5223,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   totalSoles: 12
-  duracionSolSegundos: 60
-  energiaInicial: 80
-  soporteInicial: 80
-  comidaInicial: 80
-  radiacionInicial: 10
+  duracionSolSegundos: 30
+  velocidadBarras: 0.45
+  segundosEntreEventos: 25
+  primerEventoSegundos: 20
+  energiaInicial: 100
+  soporteInicial: 100
+  comidaInicial: 100
+  radiacionInicial: 100
   generadorInicial: 1
   soporteActivoInicial: 1
   invernaderoInicial: 1
-  escudosInicial: 0
+  escudosInicial: 1
   tasas:
-    produccionGenerador: 2.5
+    produccionGenerador: 1.6
     perdidaSinGenerador: 1.5
-    consumoSoporte: 0.8
-    consumoInvernadero: 0.6
+    consumoSoporte: 1
+    consumoInvernadero: 1
     consumoEscudos: 1.2
     soporteSube: 1.5
     soporteBaja: 2
@@ -5242,14 +5247,20 @@ MonoBehaviour:
     comidaBaja: 1.5
     radiacionBaja: 2
     radiacionSube: 1.5
-  umbralCritico: 20
+  umbralCritico: 7.9
   histeresisAlerta: 5
   eventosActivos: 1
-  probTormentaPolvo: 0.25
-  probTormentaSolar: 0.2
+  probTormentaPolvo: 0.3
+  probTormentaSolar: 0.4
   duracionTormenta: 20
   eficienciaPanelesConPolvo: 0.5
   multiplicadorRadiacionSolar: 3
+  probEventoBase: 0.8
+  perdidaPorFuga: 15
+  perdidaPorMoho: 20
+  energiaPorRemolino: 20
+  duracionNocheHelada: 15
+  consumoNocheHelada: 1
 --- !u!4 &1586610383
 Transform:
   m_ObjectHideFlags: 0
@@ -5277,8 +5288,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9f2a442f38969499ddb3e974b6f937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HudSupervivencia
-  segundosAviso: 5
+  duracionAviso: 8
   teclaReintentar: 32
+  tamanoBarras: 0.8
+  tripulacion: 4
+--- !u!114 &1586610385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586610381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f36f37056ea02f4db44d2fafe107e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GuiaEducativa
+  mostrarInicio: 1
+  fondoInicio: {fileID: 0}
+  cuadrosFondo: 6
+  cuadrosFondoPorSegundo: 4
+  usarDonkiEnVivo: 1
+  claveApiNasa: DEMO_KEY
+  diasHaciaAtras: 30
+  tutorialActivo: 1
+  mostrarNombresPuertas: 1
+  alturaNombres: 0.78
+  tamanoBarras: 0.8
+  duracionTarjeta: 14
+  pausaEntreDatos: 8
+--- !u!114 &1586610386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586610381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b9f2a442f38969499ddb3e974b6f937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HudSupervivencia
+  duracionAviso: 8
+  teclaReintentar: 32
+  tamanoBarras: 0.8
+  tripulacion: 4
 --- !u!1 &1600133586
 GameObject:
   m_ObjectHideFlags: 0
@@ -5417,7 +5471,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 4.266667, y: 4.266667}
     newSize: {x: 1.5625, y: 3.875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6073,16 +6127,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1653697772}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a9810c74bb4dcf459daa5a946882e10, type: 3}
+  m_Script: {fileID: 11500000, guid: 09c36318927b8de44bb210c24a751236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SalaInteractiva
   sala: 0
   tecla: 19
-  radio: 2
+  mitadAnchoSala: 5.2
   alturaLetrero: 1.6
-  capaNormal: {fileID: 0}
-  capaFalla: {fileID: 0}
-  capaAlarma: {fileID: 0}
+  capaNormal: {fileID: 896442763}
+  capaFalla: {fileID: 963535139}
+  capaAlarma: {fileID: 104679169}
 --- !u!1 &1830122884
 GameObject:
   m_ObjectHideFlags: 0
@@ -6216,12 +6270,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1840338904}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a9810c74bb4dcf459daa5a946882e10, type: 3}
+  m_Script: {fileID: 11500000, guid: 09c36318927b8de44bb210c24a751236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SalaInteractiva
   sala: 3
   tecla: 19
-  radio: 2
+  mitadAnchoSala: 5.2
   alturaLetrero: 1.6
   capaNormal: {fileID: 599653651}
   capaFalla: {fileID: 1642252610}
