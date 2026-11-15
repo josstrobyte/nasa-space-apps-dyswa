@@ -1027,7 +1027,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.15, y: 1.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1280526759}
@@ -1081,7 +1081,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: ddb7c3d3baba40e48b2adbe663091559, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e93e08f355de4b14fac26b39496235d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5312,7 +5312,7 @@ MonoBehaviour:
   claveApiNasa: DEMO_KEY
   diasHaciaAtras: 30
   tutorialActivo: 1
-  mostrarNombresPuertas: 1
+  mostrarNombresPuertas: 0
   alturaNombres: 0.78
   tamanoBarras: 0.8
   margenLectura: 3.5
