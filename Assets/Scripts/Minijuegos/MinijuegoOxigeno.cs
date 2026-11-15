@@ -91,7 +91,7 @@ public class MinijuegoOxigeno : MonoBehaviour
 
                 if (aciertos >= AciertosNecesarios)
                 {
-                    gm.FijarSala(Sala.Soporte, true);
+                    gm.CompletarReparacionSoporte();
                     Cerrar();
                 }
             }

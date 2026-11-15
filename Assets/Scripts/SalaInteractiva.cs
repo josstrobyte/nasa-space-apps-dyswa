@@ -104,7 +104,7 @@ if (sala == Sala.Energia &&
 }
 else if (sala == Sala.Soporte &&
          reparacionOxigeno != null &&
-         !gm.EstaActiva(Sala.Soporte))
+         gm.SoporteAveriado)
 {
     if (!reparacionOxigeno.Abierto)
         reparacionOxigeno.Abrir();
@@ -186,9 +186,9 @@ string texto =
     limpiezaPaneles.Sucios
     ? "[E] Limpiar paneles"
     : sala == Sala.Soporte &&
-      reparacionOxigeno != null &&
-      !gm.EstaActiva(Sala.Soporte)
-      ? "[E] Reparar regulador"
+  reparacionOxigeno != null &&
+  gm.SoporteAveriado
+  ? "[E] Reparar regulador"
       : (gm.EstaActiva(sala) ? "[E] Apagar " : "[E] Encender ")
         + NombreSistema();
 

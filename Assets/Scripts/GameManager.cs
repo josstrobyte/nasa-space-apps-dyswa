@@ -100,6 +100,7 @@ public class GameManager : MonoBehaviour
 
     /// <summary>Mientras sea true, el reloj, las barras y los eventos no avanzan (se usa en el tutorial).</summary>
     public bool TiempoDetenido { get; set; }
+    public bool SoporteAveriado { get; private set; }
 
     // Para explicar en pantalla por qué sube o baja cada barra
     readonly float[] tendencia = new float[4];
@@ -155,6 +156,7 @@ public class GameManager : MonoBehaviour
         ultimoEventoBase = -1;
         ContadorEventos = 0;
         UltimoDatoEvento = "";
+        SoporteAveriado = false;
 
         Energia = energiaInicial;
         SoporteVital = soporteInicial;
@@ -290,6 +292,7 @@ public class GameManager : MonoBehaviour
 
             case 1: // Fuga de aire
                 SoporteVital = Limitar(SoporteVital - perdidaPorFuga);
+                SoporteAveriado = true;
                 FijarSala(Sala.Soporte, false);
                 EmitirAlerta("¡Fuga de aire! Se perdió oxígeno y el soporte vital se detuvo. Ve a encenderlo con E.");
                 UltimoDatoEvento = "En 2020, los astronautas de la Estación Espacial Internacional buscaron una pequeña fuga de aire durante semanas. La encontraron viendo hacia dónde flotaban unas hojas de té.|NASA y Roscosmos - Estación Espacial, 2020";
@@ -433,6 +436,14 @@ float cambioRadiacion = (escudos && hayLuz)
         salaActiva[(int)sala] = activa;
         SalaCambiada?.Invoke(sala, activa);
     }
+    public void CompletarReparacionSoporte()
+{
+    if (!JuegoActivo || !SoporteAveriado)
+        return;
+
+    SoporteAveriado = false;
+    FijarSala(Sala.Soporte, true);
+}
 
     // Los botones de Unity (OnClick) no aceptan enums en el Inspector, así que se usa un int:
     // 0 = Energía, 1 = Soporte, 2 = Alimentos, 3 = Radiación

@@ -5311,7 +5311,7 @@ MonoBehaviour:
   totalSoles: 12
   duracionSolSegundos: 30
   velocidadBarras: 0.45
-  segundosEntreEventos: 50
+  segundosEntreEventos: 45
   primerEventoSegundos: 35
   energiaInicial: 75
   soporteInicial: 80
