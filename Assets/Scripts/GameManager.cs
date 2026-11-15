@@ -63,6 +63,8 @@ public class GameManager : MonoBehaviour
     [SerializeField, Range(0, 1)] float probTormentaSolar = 0.20f;
     [SerializeField, Min(1f)] float duracionTormenta = 20f;
     [SerializeField, Range(0, 1)] float eficienciaPanelesConPolvo = 0.5f;
+    [Header("Minijuego de paneles")]
+[SerializeField] MinijuegoPaneles minijuegoPaneles;
     [SerializeField, Min(1f)] float multiplicadorRadiacionSolar = 3f;
 
     // ---------- Estado público de solo lectura ----------
@@ -110,6 +112,8 @@ public class GameManager : MonoBehaviour
         temporizadorSol = 0f;
         tiempoTormentaPolvo = 0f;
         tiempoTormentaSolar = 0f;
+        if (minijuegoPaneles != null)
+    minijuegoPaneles.ReiniciarMinijuego();
 
         Energia = energiaInicial;
         SoporteVital = soporteInicial;
@@ -197,7 +201,11 @@ public class GameManager : MonoBehaviour
         bool invernadero = EstaActiva(Sala.Alimentos);
         bool escudos = EstaActiva(Sala.Radiacion);
 
-        float multPaneles = HayTormentaPolvo ? eficienciaPanelesConPolvo : 1f;
+        float multPaneles = minijuegoPaneles != null
+    ? minijuegoPaneles.EficienciaPaneles : 1f;
+
+if (HayTormentaPolvo)
+    multPaneles *= eficienciaPanelesConPolvo;
         float multRadiacion = HayTormentaSolar ? multiplicadorRadiacionSolar : 1f;
 
         // Energía

@@ -39,6 +39,13 @@ public class MinijuegoPaneles : MonoBehaviour
         Sucios = true;
     }
 
+    public void ReiniciarMinijuego()
+{
+    Cerrar();
+    Ensuciar();
+    habiaTormentaPolvo = false;
+}
+
     public void Abrir()
     {
         if (!Sucios || Abierto) return;
