@@ -1,0 +1,832 @@
+fileFormatVersion: 2
+guid: 0e9cb3a6756f2784ea88cbdf9aec9685
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4755831126119796075
+    second: 02_ELEMENTOS_DINAMICOS_320x180_0
+  - first:
+      213: -2951561714763318205
+    second: 02_ELEMENTOS_DINAMICOS_320x180_1
+  - first:
+      213: 4377422650993287642
+    second: 02_ELEMENTOS_DINAMICOS_320x180_2
+  - first:
+      213: -8450288827963358765
+    second: 02_ELEMENTOS_DINAMICOS_320x180_3
+  - first:
+      213: -6008178023670885478
+    second: 02_ELEMENTOS_DINAMICOS_320x180_4
+  - first:
+      213: -8606358091570442928
+    second: 02_ELEMENTOS_DINAMICOS_320x180_5
+  - first:
+      213: -1355206259807958373
+    second: 02_ELEMENTOS_DINAMICOS_320x180_6
+  - first:
+      213: 5039433758401973049
+    second: 02_ELEMENTOS_DINAMICOS_320x180_7
+  - first:
+      213: 2494210072329534373
+    second: 02_ELEMENTOS_DINAMICOS_320x180_8
+  - first:
+      213: -6817782127312367637
+    second: 02_ELEMENTOS_DINAMICOS_320x180_9
+  - first:
+      213: -7248975727014843795
+    second: 02_ELEMENTOS_DINAMICOS_320x180_10
+  - first:
+      213: 4410663540689843057
+    second: 02_ELEMENTOS_DINAMICOS_320x180_11
+  - first:
+      213: 1263409774627479117
+    second: 02_ELEMENTOS_DINAMICOS_320x180_12
+  - first:
+      213: 2779162722876988028
+    second: 02_ELEMENTOS_DINAMICOS_320x180_13
+  - first:
+      213: 2735996441898599638
+    second: 02_ELEMENTOS_DINAMICOS_320x180_14
+  - first:
+      213: -1076851517197143090
+    second: 02_ELEMENTOS_DINAMICOS_320x180_15
+  - first:
+      213: -959398484102317713
+    second: 02_ELEMENTOS_DINAMICOS_320x180_16
+  - first:
+      213: -3188742520501645958
+    second: 02_ELEMENTOS_DINAMICOS_320x180_17
+  - first:
+      213: -317349264021097323
+    second: 02_ELEMENTOS_DINAMICOS_320x180_18
+  - first:
+      213: -5317353067677722319
+    second: 02_ELEMENTOS_DINAMICOS_320x180_19
+  - first:
+      213: -8612590142479029663
+    second: 02_ELEMENTOS_DINAMICOS_320x180_20
+  - first:
+      213: -6925539301166338938
+    second: 02_ELEMENTOS_DINAMICOS_320x180_21
+  - first:
+      213: 5230499438507062102
+    second: 02_ELEMENTOS_DINAMICOS_320x180_22
+  - first:
+      213: 7720014272002080914
+    second: 02_ELEMENTOS_DINAMICOS_320x180_23
+  - first:
+      213: 8858974514335500058
+    second: 02_ELEMENTOS_DINAMICOS_320x180_24
+  - first:
+      213: 8304223076166564182
+    second: 02_ELEMENTOS_DINAMICOS_320x180_25
+  - first:
+      213: 1009779030424370757
+    second: 02_ELEMENTOS_DINAMICOS_320x180_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 30
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_0
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 128
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59232ebc9c4effdb0800000000000000
+      internalID: -4755831126119796075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_1
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 125
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34cb3ea2242f907d0800000000000000
+      internalID: -2951561714763318205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 124
+        width: 26
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad1243065babfbc30800000000000000
+      internalID: 4377422650993287642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_3
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 130
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d1cacf151b8aba80800000000000000
+      internalID: -8450288827963358765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_4
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 124
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a93d9cf8be9ae9ca0800000000000000
+      internalID: -6008178023670885478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_5
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 124
+        width: 21
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05d82260ae2109880800000000000000
+      internalID: -8606358091570442928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_6
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 124
+        width: 24
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9ac2ce3617513de0800000000000000
+      internalID: -1355206259807958373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_7
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 124
+        width: 29
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93b49ae9d4aafe540800000000000000
+      internalID: 5039433758401973049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_8
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 124
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ab376c88d63d9220800000000000000
+      internalID: 2494210072329534373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_9
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 124
+        width: 34
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bef0a81074f5261a0800000000000000
+      internalID: -6817782127312367637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_10
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 87
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6ae9d5abf6766b90800000000000000
+      internalID: -7248975727014843795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_11
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 87
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 173b59e1f13d53d30800000000000000
+      internalID: 4410663540689843057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_12
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 87
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4e5d660f78888110800000000000000
+      internalID: 1263409774627479117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_13
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 80
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7a171695c1919620800000000000000
+      internalID: 2779162722876988028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_14
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 66
+        width: 27
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d4491a944638f520800000000000000
+      internalID: 2735996441898599638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_15
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 88
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec3bf9120414e01f0800000000000000
+      internalID: -1076851517197143090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_16
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 80
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f69780d69288fa2f0800000000000000
+      internalID: -959398484102317713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_17
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 80
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7dc051829f4fb3d0800000000000000
+      internalID: -3188742520501645958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_18
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 66
+        width: 13
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5947a48968c889bf0800000000000000
+      internalID: -317349264021097323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_19
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 82
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1395cb7be87f436b0800000000000000
+      internalID: -5317353067677722319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_20
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 66
+        width: 22
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16aa18995eee97880800000000000000
+      internalID: -8612590142479029663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_21
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 81
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68c29fbd2ba83ef90800000000000000
+      internalID: -6925539301166338938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_22
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 82
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 653f716e687769840800000000000000
+      internalID: 5230499438507062102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_23
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 80
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29041a7f310032b60800000000000000
+      internalID: 7720014272002080914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_24
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 55
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a17c439426661fa70800000000000000
+      internalID: 8858974514335500058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_25
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 55
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 659728ed3e68e3370800000000000000
+      internalID: 8304223076166564182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_ELEMENTOS_DINAMICOS_320x180_26
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 55
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54e351a9da4730e00800000000000000
+      internalID: 1009779030424370757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      02_ELEMENTOS_DINAMICOS_320x180_0: -4755831126119796075
+      02_ELEMENTOS_DINAMICOS_320x180_1: -2951561714763318205
+      02_ELEMENTOS_DINAMICOS_320x180_10: -7248975727014843795
+      02_ELEMENTOS_DINAMICOS_320x180_11: 4410663540689843057
+      02_ELEMENTOS_DINAMICOS_320x180_12: 1263409774627479117
+      02_ELEMENTOS_DINAMICOS_320x180_13: 2779162722876988028
+      02_ELEMENTOS_DINAMICOS_320x180_14: 2735996441898599638
+      02_ELEMENTOS_DINAMICOS_320x180_15: -1076851517197143090
+      02_ELEMENTOS_DINAMICOS_320x180_16: -959398484102317713
+      02_ELEMENTOS_DINAMICOS_320x180_17: -3188742520501645958
+      02_ELEMENTOS_DINAMICOS_320x180_18: -317349264021097323
+      02_ELEMENTOS_DINAMICOS_320x180_19: -5317353067677722319
+      02_ELEMENTOS_DINAMICOS_320x180_2: 4377422650993287642
+      02_ELEMENTOS_DINAMICOS_320x180_20: -8612590142479029663
+      02_ELEMENTOS_DINAMICOS_320x180_21: -6925539301166338938
+      02_ELEMENTOS_DINAMICOS_320x180_22: 5230499438507062102
+      02_ELEMENTOS_DINAMICOS_320x180_23: 7720014272002080914
+      02_ELEMENTOS_DINAMICOS_320x180_24: 8858974514335500058
+      02_ELEMENTOS_DINAMICOS_320x180_25: 8304223076166564182
+      02_ELEMENTOS_DINAMICOS_320x180_26: 1009779030424370757
+      02_ELEMENTOS_DINAMICOS_320x180_3: -8450288827963358765
+      02_ELEMENTOS_DINAMICOS_320x180_4: -6008178023670885478
+      02_ELEMENTOS_DINAMICOS_320x180_5: -8606358091570442928
+      02_ELEMENTOS_DINAMICOS_320x180_6: -1355206259807958373
+      02_ELEMENTOS_DINAMICOS_320x180_7: 5039433758401973049
+      02_ELEMENTOS_DINAMICOS_320x180_8: 2494210072329534373
+      02_ELEMENTOS_DINAMICOS_320x180_9: -6817782127312367637
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

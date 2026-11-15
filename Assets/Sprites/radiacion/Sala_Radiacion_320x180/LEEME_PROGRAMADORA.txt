@@ -1,0 +1,17 @@
+SALA DE RADIACION - BASE MARCIANA
+Resolucion de cada imagen/capa: 320 x 180 px.
+Spritesheet de puerta: 960 x 180 px = 3 frames consecutivos de 320 x 180 px.
+Paleta de escena: 20 colores. PNG RGBA. Bordes nítidos, sin antialiasing añadido.
+
+CAPAS, todas con origen X=0 Y=0:
+1) 01_FONDO_ESTATICO: sala, litera triple a la derecha, puerta de emergencia al extremo izquierdo abierta, techo con regolito y rover con carga (ilustracion estatica, no se mueve).
+2) 02_INDICADORES_NORMALES o 02_INDICADORES_ALERTA: cambiar uno por otro. Monitores y luces de advertencia.
+3) 03_PUERTA_ABIERTA / 03_PUERTA_CERRANDO / 03_PUERTA_CERRADA: poner solo una a la vez.
+Para cerrar la puerta: ABIERTA -> CERRANDO -> CERRADA. Para abrir, invertir.
+
+00_VISTA_NORMAL y 00_VISTA_ALERTA son previews ensambladas, NO capas para apilar.
+Los indicadores son puramente visuales; sus valores son ilustrativos, no mediciones fisicas.
+El rover esta en el fondo como referencia narrativa: no incluye un movimiento propio.
+La franja inferior del escenario queda libre para movimiento horizontal del personaje.
+El suelo es 2D, la colision y las interacciones las define la programadora.
+No se incluye codigo.
