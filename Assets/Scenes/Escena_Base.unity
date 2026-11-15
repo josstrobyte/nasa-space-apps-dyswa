@@ -1952,6 +1952,57 @@ Transform:
   - {fileID: 2104793199}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &766589450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 766589451}
+  - component: {fileID: 766589452}
+  m_Layer: 0
+  m_Name: Consola_Alimentos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &766589451
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766589450}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1629160805}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &766589452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766589450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a9810c74bb4dcf459daa5a946882e10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SalaInteractiva
+  sala: 2
+  tecla: 19
+  radio: 2
+  alturaLetrero: 1.6
+  capaNormal: {fileID: 1133313345}
+  capaFalla: {fileID: 1079330150}
+  capaAlarma: {fileID: 1830122884}
 --- !u!1 &783943798
 GameObject:
   m_ObjectHideFlags: 0
@@ -4255,6 +4306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1586610383}
   - component: {fileID: 1586610382}
+  - component: {fileID: 1586610384}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4319,6 +4371,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1586610384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586610381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b9f2a442f38969499ddb3e974b6f937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HudSupervivencia
+  segundosAviso: 5
+  teclaReintentar: 32
 --- !u!1 &1600133586
 GameObject:
   m_ObjectHideFlags: 0
@@ -4795,6 +4861,7 @@ Transform:
   - {fileID: 270889241}
   - {fileID: 1830122885}
   - {fileID: 1133313346}
+  - {fileID: 766589451}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1632926177
