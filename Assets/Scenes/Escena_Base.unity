@@ -5381,8 +5381,9 @@ MonoBehaviour:
   mostrarNombresPuertas: 1
   alturaNombres: 0.78
   tamanoBarras: 0.8
-  duracionTarjeta: 14
-  pausaEntreDatos: 8
+  duracionTarjeta: 7
+  pausaMinima: 10
+  pausaMaxima: 20
 --- !u!114 &1586610386
 MonoBehaviour:
   m_ObjectHideFlags: 0

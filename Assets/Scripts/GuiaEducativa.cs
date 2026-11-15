@@ -37,10 +37,12 @@ public class GuiaEducativa : MonoBehaviour
     [Tooltip("Debe ser igual al Tamano Barras del componente Hud Supervivencia, para que las tarjetas no se encimen con las barras.")]
     [SerializeField, Range(0.5f, 1.2f)] float tamanoBarras = 0.8f;
 
-    [Header("Datos curiosos")]
-    [SerializeField, Min(2f)] float duracionTarjeta = 14f;
-    [Tooltip("Segundos de descanso antes de mostrar otro dato si el astronauta sigue en la misma sala.")]
-    [SerializeField, Min(1f)] float pausaEntreDatos = 8f;
+   [Header("Datos curiosos")]
+[SerializeField, Min(2f)] float duracionTarjeta = 7f;
+[SerializeField, Min(1f)] float pausaMinima = 10f;
+[SerializeField, Min(1f)] float pausaMaxima = 20f;
+
+float pausaEntreDatos = 15f;
 
     // Cada dato va como "texto|fuente". La fuente sale en chiquito abajo de la tarjeta.
     static readonly string[][] datosSala =
@@ -390,7 +392,9 @@ public class GuiaEducativa : MonoBehaviour
             return;
         }
 
-        if (tiempoDato <= 0f && cola.Count > 0)
+if (tiempoDato <= 0f &&
+    tiempoSinDato >= pausaEntreDatos &&
+    cola.Count > 0)
         {
             string siguiente = cola[0];
             cola.RemoveAt(0);
@@ -549,17 +553,19 @@ public class GuiaEducativa : MonoBehaviour
 
     // Si ya hay una tarjeta en pantalla, la nueva espera su turno (y la actual se acorta)
     void Mostrar(string texto)
-    {
-        if (string.IsNullOrEmpty(texto)) return;
+{
+    if (string.IsNullOrEmpty(texto)) return;
 
-        if (tiempoDato > 0f)
-        {
-            if (cola.Count < 3) cola.Add(texto);
-            if (tiempoDato > 3f) tiempoDato = 3f;
-            return;
-        }
-        MostrarAhora(texto);
+    if (tiempoDato > 0f || tiempoSinDato < pausaEntreDatos)
+    {
+        if (cola.Count < 3)
+            cola.Add(texto);
+
+        return;
     }
+
+    MostrarAhora(texto);
+}
 
     void MostrarAhora(string texto)
     {
@@ -576,6 +582,7 @@ public class GuiaEducativa : MonoBehaviour
         }
         tiempoDato = duracionTarjeta;
         tiempoSinDato = 0f;
+        pausaEntreDatos = UnityEngine.Random.Range(pausaMinima, pausaMaxima);
     }
 
     // ------------------------------------------------------------------
