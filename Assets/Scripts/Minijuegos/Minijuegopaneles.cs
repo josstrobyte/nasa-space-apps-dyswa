@@ -9,6 +9,9 @@ public class MinijuegoPaneles : MonoBehaviour
     const int Columnas = 4;
 
     [SerializeField] bool empezarConPolvo = true;
+    [Header("Sprites del minijuego")]
+[SerializeField] Texture2D panelLimpio;
+[SerializeField] Texture2D panelSucio;
 
     bool[,] polvo = new bool[Filas, Columnas];
     int casillasLimpias;
@@ -150,11 +153,26 @@ public class MinijuegoPaneles : MonoBehaviour
                     }
                 }
 
-                GUI.color = polvo[f, c]
-                    ? new Color(0.63f, 0.31f, 0.12f)
-                    : new Color(0.10f, 0.55f, 0.78f);
+                Texture2D imagen = polvo[f, c]
+    ? panelSucio
+    : panelLimpio;
 
-                GUI.DrawTexture(celda, Texture2D.whiteTexture);
+GUI.color = Color.white;
+
+if (imagen != null)
+{
+    GUI.DrawTexture(celda, imagen);
+}
+else
+{
+    GUI.color = polvo[f, c]
+        ? new Color(0.63f, 0.31f, 0.12f)
+        : new Color(0.10f, 0.55f, 0.78f);
+
+    GUI.DrawTexture(celda, Texture2D.whiteTexture);
+}
+
+GUI.color = Color.white;
             }
         }
 
