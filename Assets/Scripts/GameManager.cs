@@ -83,6 +83,12 @@ public class GameManager : MonoBehaviour
     [SerializeField, Range(0, 50)] float energiaPorRemolino = 20f;
     [SerializeField, Min(1f)] float duracionNocheHelada = 15f;
     [SerializeField, Min(0f)] float consumoNocheHelada = 1f;
+    [Header("Repeticion de minijuegos")]
+[SerializeField, Min(1f)] float minimoEntreLimpiezas = 60f;
+[SerializeField, Min(1f)] float maximoEntreLimpiezas = 90f;
+
+[SerializeField, Min(1f)] float minimoEntreFugas = 75f;
+[SerializeField, Min(1f)] float maximoEntreFugas = 110f;
 
     // ---------- Estado público de solo lectura ----------
     public int SolActual { get; private set; }
@@ -126,6 +132,42 @@ public class GameManager : MonoBehaviour
     float temporizadorEvento;
     int ultimoEventoBase = -1;
 
+    float tiempoHastaLimpieza;
+float tiempoHastaFuga;
+
+void ActualizarMinijuegos(float dt)
+{
+    if (!eventosActivos) return;
+
+    tiempoHastaLimpieza -= dt;
+    tiempoHastaFuga -= dt;
+
+    // Acumulación aleatoria de polvo
+    if (tiempoHastaLimpieza <= 0f)
+    {
+        tiempoHastaLimpieza = UnityEngine.Random.Range(
+            minimoEntreLimpiezas, maximoEntreLimpiezas);
+
+        if (minijuegoPaneles != null && !minijuegoPaneles.Sucios)
+        {
+            minijuegoPaneles.Ensuciar();
+            EmitirAlerta("¡Polvo acumulado! Limpia los paneles solares.");
+        }
+    }
+
+    // Avería aleatoria del soporte vital
+    if (tiempoHastaFuga <= 0f)
+    {
+        tiempoHastaFuga = UnityEngine.Random.Range(
+            minimoEntreFugas, maximoEntreFugas);
+
+        if (!SoporteAveriado && IntentarEventoBase(1))
+        {
+            ContadorEventos++;
+        }
+    }
+}
+
     void Awake()
     {
         if (Instancia != null && Instancia != this)
@@ -154,6 +196,8 @@ public class GameManager : MonoBehaviour
     minijuegoPaneles.ReiniciarMinijuego();
         temporizadorEvento = primerEventoSegundos;
         ultimoEventoBase = -1;
+        tiempoHastaLimpieza = UnityEngine.Random.Range(45f, 70f);
+tiempoHastaFuga = UnityEngine.Random.Range(25f, 45f);
         ContadorEventos = 0;
         UltimoDatoEvento = "";
         SoporteAveriado = false;
@@ -191,7 +235,8 @@ public class GameManager : MonoBehaviour
         if (!JuegoActivo) return;
 
         AvanzarEventos(dt);
-
+        
+        ActualizarMinijuegos(dt);
         ActualizarTormentas(dt);
         ActualizarRecursos(dt);
         RevisarAlertas();

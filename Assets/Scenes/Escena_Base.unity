@@ -5327,8 +5327,8 @@ MonoBehaviour:
     consumoSoporte: 1.1
     consumoInvernadero: 1.2
     consumoEscudos: 1.6
-    soporteSube: 0.25
-    soporteBaja: 2
+    soporteSube: 0.6
+    soporteBaja: 1.8
     comidaSube: 0.12
     comidaBaja: 1.8
     radiacionBaja: 0.6
@@ -5343,11 +5343,15 @@ MonoBehaviour:
   minijuegoPaneles: {fileID: 569794409}
   multiplicadorRadiacionSolar: 3
   probEventoBase: 0.8
-  perdidaPorFuga: 18
+  perdidaPorFuga: 14
   perdidaPorMoho: 18
   energiaPorRemolino: 10
   duracionNocheHelada: 15
   consumoNocheHelada: 1
+  minimoEntreLimpiezas: 15
+  maximoEntreLimpiezas: 25
+  minimoEntreFugas: 20
+  maximoEntreFugas: 30
 --- !u!4 &1586610383
 Transform:
   m_ObjectHideFlags: 0
