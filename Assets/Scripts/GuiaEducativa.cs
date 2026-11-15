@@ -6,14 +6,13 @@ using UnityEngine.InputSystem;
 using UnityEngine.Networking;
 
 // Ponlo en el objeto GameManager.
-// - Pantalla de inicio con la misión y los controles.
-// - Tarjetas "¿Sabías que...?" al entrar a cada sala, al empezar un Sol
-//   y cuando llega una tormenta.
+// - Pantalla de inicio animada con la portada (6 cuadros) y controles.
+// - Tarjetas "¿Sabías que...?" espaciadas para no saturar al jugador.
 public class GuiaEducativa : MonoBehaviour
 {
     [Header("Pantalla de inicio")]
     [SerializeField] bool mostrarInicio = true;
-    [Tooltip("Opcional: hoja de la portada (START.png). Si se pone, primero sale la portada sola y luego las instrucciones.")]
+    [Tooltip("Arrastra aquí tu imagen START (1).png (hoja de 6 cuadros).")]
     [SerializeField] Texture2D fondoInicio;
     [Tooltip("Cuántos cuadros tiene la hoja de la portada, de izquierda a derecha.")]
     [SerializeField, Min(1)] int cuadrosFondo = 6;
@@ -37,10 +36,15 @@ public class GuiaEducativa : MonoBehaviour
     [Tooltip("Debe ser igual al Tamano Barras del componente Hud Supervivencia, para que las tarjetas no se encimen con las barras.")]
     [SerializeField, Range(0.5f, 1.2f)] float tamanoBarras = 0.8f;
 
-    [Header("Datos curiosos")]
-    [SerializeField, Min(2f)] float duracionTarjeta = 14f;
-    [Tooltip("Segundos de descanso antes de mostrar otro dato si el astronauta sigue en la misma sala.")]
-    [SerializeField, Min(1f)] float pausaEntreDatos = 8f;
+    [Header("Datos curiosos (ritmo relajado)")]
+    [Tooltip("Segundos extra de margen además del tiempo calculado según qué tan largo sea el texto.")]
+    [SerializeField, Min(1f)] float margenLectura = 3.5f;
+    [Tooltip("Mínimo de segundos con la pantalla limpia antes de que salga otro dato espontáneo.")]
+    [SerializeField, Min(5f)] float pausaMinimaEntreDatos = 22f;
+    [Tooltip("Máximo de segundos con la pantalla limpia antes de que salga otro dato espontáneo.")]
+    [SerializeField, Min(5f)] float pausaMaximaEntreDatos = 35f;
+    [Tooltip("Segundos de espera antes de mostrar un dato nuevo al entrar a otra sala (evita spam al entrar y salir rápido).")]
+    [SerializeField, Min(0f)] float enfriamientoAlEntrarSala = 14f;
 
     // Cada dato va como "texto|fuente". La fuente sale en chiquito abajo de la tarjeta.
     static readonly string[][] datosSala =
@@ -102,7 +106,6 @@ public class GuiaEducativa : MonoBehaviour
         "Un viaje a Marte dura entre 6 y 9 meses.|NASA - Datos de Marte"
     };
 
-    // Tormentas REALES registradas por la NASA. Salen en orden aleatorio cada vez que hay una tormenta en el juego.
     static readonly string[] eventosSolares =
     {
         "20 de mayo de 2024: una tormenta solar golpeó Marte. El rover Curiosity midió de golpe una radiación igual a 30 radiografías de tórax: la mayor de su misión.|NASA - Curiosity RAD, 2024",
@@ -122,18 +125,16 @@ public class GuiaEducativa : MonoBehaviour
         "Las tormentas de polvo de Marte pueden cubrir el planeta entero durante semanas y tapar la luz del Sol.|NASA - Datos de Marte"
     };
 
-    // Respuesta de DONKI: una lista de llamaradas solares
     [Serializable] class Llamarada { public string beginTime; public string peakTime; public string classType; }
     [Serializable] class ListaLlamaradas { public Llamarada[] items; }
 
     static readonly string[] meses =
         { "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre" };
 
-    string resumenDonki = "";   // se muestra en la pantalla de instrucciones
-    string datoDonki;           // se muestra cuando llega una tormenta solar
+    string resumenDonki = "";
+    string datoDonki;
     int tormentasSolares;
 
-    // Reparte los datos en orden aleatorio y sin repetir hasta haberlos mostrado todos
     class Bolsa
     {
         readonly string[] datos;
@@ -161,6 +162,7 @@ public class GuiaEducativa : MonoBehaviour
     Bolsa bolsaSolar;
     Bolsa bolsaPolvo;
     float tiempoSinDato;
+    float proximaPausaObjetivo;
 
     bool enInicio;
     bool enPortada;
@@ -174,16 +176,13 @@ public class GuiaEducativa : MonoBehaviour
     bool habiaPolvo;
     bool habiaSolar;
 
-    // Pantallas de inicio: 0 = misión y controles, 1 = conoce tu base
     int paginaInicio;
 
-    // Tutorial guiado
     bool enTutorial;
     int pasoTutorial;
     float xInicialTutorial;
     bool xGuardada;
 
-    // Letreros de las puertas
     static readonly string[] nombresObjetoPuerta = { "Puerta_Energia", "Puerta_Soporte", "Puerta_Alimentos", "Puerta_Radiacion" };
     static readonly string[] nombresPuerta = { "ENERGÍA", "SOPORTE VITAL", "ALIMENTOS", "RADIACIÓN" };
     static readonly Color[] coloresPuerta =
@@ -197,6 +196,7 @@ public class GuiaEducativa : MonoBehaviour
     GUIStyle estiloNombrePuerta;
 
     GUIStyle estiloDato;
+    GUIStyle estiloTutorial;
     GUIStyle estiloTexto;
     GUIStyle estiloEtiqueta;
     GUIStyle estiloFuente;
@@ -211,11 +211,13 @@ public class GuiaEducativa : MonoBehaviour
         bolsaSolar = new Bolsa(eventosSolares);
         bolsaPolvo = new Bolsa(eventosPolvo);
 
+        CalcularSiguientePausa();
+
         if (mostrarInicio)
         {
             enInicio = true;
             enPortada = fondoInicio != null;
-            Time.timeScale = 0f; // el juego espera hasta que pulsen ESPACIO
+            Time.timeScale = 0f;
         }
 
         if (tutorialActivo && GameManager.Instancia != null)
@@ -232,14 +234,19 @@ public class GuiaEducativa : MonoBehaviour
         }
     }
 
+    void CalcularSiguientePausa()
+    {
+        float min = Mathf.Min(pausaMinimaEntreDatos, pausaMaximaEntreDatos);
+        float max = Mathf.Max(pausaMinimaEntreDatos, pausaMaximaEntreDatos);
+        proximaPausaObjetivo = UnityEngine.Random.Range(min, max);
+    }
+
     IEnumerator ConsultarDonki()
     {
         DateTime hoy = DateTime.UtcNow;
         string fechas = "startDate=" + hoy.AddDays(-diasHaciaAtras).ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) +
                         "&endDate=" + hoy.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
 
-        // Se prueban dos servidores de la NASA con los mismos datos:
-        // 1) el de DONKI directo (no pide clave)  2) api.nasa.gov (pide clave)
         string[] urls =
         {
             "https://kauai.ccmc.gsfc.nasa.gov/DONKI/WS/get/FLR?" + fechas,
@@ -275,13 +282,11 @@ public class GuiaEducativa : MonoBehaviour
         resumenDonki = "Sin conexión con NASA DONKI: el juego usará tormentas reales registradas por la NASA.";
     }
 
-    // Devuelve true si la respuesta de la NASA se pudo leer
     bool InterpretarDonki(string json)
     {
         if (json == null) return false;
         json = json.Trim();
 
-        // DONKI responde vacío cuando no hubo ninguna llamarada en esas fechas
         if (json.Length == 0)
         {
             resumenDonki = "Clima espacial real (NASA DONKI): el Sol ha estado tranquilo, sin llamaradas en los últimos " +
@@ -327,7 +332,6 @@ public class GuiaEducativa : MonoBehaviour
         return true;
     }
 
-    // "M5.2" -> número para comparar. Las letras van de menor a mayor: A, B, C, M, X
     static float Fuerza(string clase)
     {
         if (string.IsNullOrEmpty(clase)) return -1f;
@@ -338,7 +342,6 @@ public class GuiaEducativa : MonoBehaviour
         return letra * 1000f + numero;
     }
 
-    // "2026-11-05T13:45Z" -> ", el 5 de noviembre"
     static string FechaBonita(string texto)
     {
         if (string.IsNullOrEmpty(texto) || texto.Length < 10) return "";
@@ -363,11 +366,11 @@ public class GuiaEducativa : MonoBehaviour
             {
                 if (enPortada)
                 {
-                    enPortada = false; // de la portada a las instrucciones
+                    enPortada = false;
                 }
                 else if (paginaInicio == 0)
                 {
-                    paginaInicio = 1;  // de las instrucciones a "conoce tu base"
+                    paginaInicio = 1;
                 }
                 else
                 {
@@ -383,6 +386,7 @@ public class GuiaEducativa : MonoBehaviour
 
         if (tiempoDato > 0f) tiempoDato -= Time.unscaledDeltaTime;
         else tiempoSinDato += Time.unscaledDeltaTime;
+
         if (!gm.JuegoActivo)
         {
             cola.Clear();
@@ -431,23 +435,31 @@ public class GuiaEducativa : MonoBehaviour
             return;
         }
 
+        // Al entrar a una sala, solo muestra dato si ya pasó suficiente tiempo sin tarjetas
         if (sala != salaActual)
         {
             salaActual = sala;
-            if (sala >= 0 && sala < bolsasSala.Length) Mostrar(bolsasSala[sala].Siguiente());
+            if (sala >= 0 && sala < bolsasSala.Length && tiempoDato <= 0f && tiempoSinDato >= enfriamientoAlEntrarSala)
+            {
+                Mostrar(bolsasSala[sala].Siguiente());
+            }
         }
-        else if (sala >= 0 && sala < bolsasSala.Length && tiempoDato <= 0f && tiempoSinDato >= pausaEntreDatos)
+        else if (tiempoDato <= 0f && tiempoSinDato >= proximaPausaObjetivo)
         {
-            // Si se queda en la sala, sale otro dato distinto cada cierto tiempo
-            Mostrar(bolsasSala[sala].Siguiente());
+            // Aparece otro dato distinto después de una buena pausa
+            if (sala >= 0 && sala < bolsasSala.Length)
+                Mostrar(bolsasSala[sala].Siguiente());
+            else
+                Mostrar(bolsaGeneral.Siguiente());
         }
 
-        // ---- Nuevo Sol ----
+        // ---- Nuevo Sol (solo cada 2 soles para no saturar cada minuto) ----
         if (gm.SolActual != solVisto)
         {
             bool avanzo = gm.SolActual > solVisto;
             solVisto = gm.SolActual;
-            if (avanzo) Mostrar(bolsaGeneral.Siguiente());
+            if (avanzo && solVisto % 2 == 0 && tiempoDato <= 0f)
+                Mostrar(bolsaGeneral.Siguiente());
         }
 
         // ---- Eventos de la base (averías, fugas, etc.) ----
@@ -462,7 +474,6 @@ public class GuiaEducativa : MonoBehaviour
         if (gm.HayTormentaPolvo && !habiaPolvo) Mostrar(bolsaPolvo.Siguiente());
         if (gm.HayTormentaSolar && !habiaSolar)
         {
-            // La primera vez, el dato en vivo de DONKI (si hubo conexión); después, tormentas reales guardadas
             if (tormentasSolares == 0 && !string.IsNullOrEmpty(datoDonki)) Mostrar(datoDonki);
             else Mostrar(bolsaSolar.Siguiente());
             tormentasSolares++;
@@ -479,7 +490,6 @@ public class GuiaEducativa : MonoBehaviour
     {
         Keyboard teclado = Keyboard.current;
 
-        // T salta el tutorial en cualquier momento
         if (teclado != null && teclado[Key.T].wasPressedThisFrame)
         {
             TerminarTutorial(gm);
@@ -488,7 +498,7 @@ public class GuiaEducativa : MonoBehaviour
 
         switch (pasoTutorial)
         {
-            case 0: // caminar
+            case 0:
                 if (jugador == null) break;
                 if (!xGuardada)
                 {
@@ -498,21 +508,21 @@ public class GuiaEducativa : MonoBehaviour
                 if (Mathf.Abs(jugador.position.x - xInicialTutorial) > 1.5f) pasoTutorial = 1;
                 break;
 
-            case 1: // entrar a la sala de Radiación
+            case 1:
                 if (salaActual == (int)Sala.Radiacion)
                     pasoTutorial = gm.EstaActiva(Sala.Radiacion) ? 3 : 2;
                 break;
 
-            case 2: // encender los escudos
+            case 2:
                 if (gm.EstaActiva(Sala.Radiacion)) pasoTutorial = 3;
                 else if (salaActual != (int)Sala.Radiacion) pasoTutorial = 1;
                 break;
 
-            case 3: // salir al pasillo
+            case 3:
                 if (salaActual == -1) pasoTutorial = 4;
                 break;
 
-            default: // resumen final: ESPACIO para empezar
+            default:
                 if (teclado != null &&
                     (teclado[Key.Space].wasPressedThisFrame || teclado[Key.Enter].wasPressedThisFrame))
                     TerminarTutorial(gm);
@@ -526,6 +536,8 @@ public class GuiaEducativa : MonoBehaviour
         gm.TiempoDetenido = false;
         cola.Clear();
         tiempoDato = 0f;
+        tiempoSinDato = 0f;
+        CalcularSiguientePausa();
     }
 
     string TextoTutorial()
@@ -533,28 +545,28 @@ public class GuiaEducativa : MonoBehaviour
         switch (pasoTutorial)
         {
             case 0:
-                return "Paso 1 de 5.  Camina por el pasillo con las flechas IZQUIERDA y DERECHA (o las teclas A y D).";
+                return "Paso 1/5: Camina por el pasillo con las flechas IZQ/DER o teclas A y D.";
             case 1:
                 if (salaActual >= 0)
-                    return "Paso 2 de 5.  Esta no es la sala de los escudos. Sal caminando hasta el borde izquierdo y busca la última puerta de la derecha: RADIACIÓN.";
-                return "Paso 2 de 5.  Ve a la última puerta de la derecha, la que dice RADIACIÓN. Párate frente a ella y pulsa E para entrar.";
+                    return "Paso 2/5: Sala equivocada. Sal al borde izquierdo y busca la puerta RADIACIÓN.";
+                return "Paso 2/5: Ve a la última puerta (RADIACIÓN) y pulsa E para entrar.";
             case 2:
-                return "Paso 3 de 5.  Esta sala protege a la base de la radiación del espacio. Los escudos están APAGADOS: pulsa E para encenderlos.";
+                return "Paso 3/5: Los escudos protegen la base pero están APAGADOS. Pulsa E para encenderlos.";
             case 3:
-                return "Paso 4 de 5.  ¡Bien! Mira arriba a la izquierda: Radiación ya dice ENCENDIDO. Ahora camina hasta el borde izquierdo para volver al pasillo.";
+                return "Paso 4/5: ¡Listo! Radiación dice ENCENDIDO. Camina al borde izquierdo para volver al pasillo.";
             default:
-                return "Paso 5 de 5.  Cada puerta cuida una barra: ENERGÍA, SOPORTE VITAL (el aire), ALIMENTOS (la comida) y RADIACIÓN (los escudos). Todo gasta energía, así que no siempre podrás tener todo encendido. Pulsa ESPACIO para empezar la misión.";
+                return "Paso 5/5: Cada puerta cuida una barra y todas gastan energía. Pulsa ESPACIO para empezar.";
         }
     }
 
-    // Si ya hay una tarjeta en pantalla, la nueva espera su turno (y la actual se acorta)
     void Mostrar(string texto)
     {
         if (string.IsNullOrEmpty(texto)) return;
 
         if (tiempoDato > 0f)
         {
-            if (cola.Count < 3) cola.Add(texto);
+            // Máximo 1 dato en espera para no encadenar muchas tarjetas seguidas
+            if (cola.Count < 1) cola.Add(texto);
             if (tiempoDato > 3f) tiempoDato = 3f;
             return;
         }
@@ -574,8 +586,12 @@ public class GuiaEducativa : MonoBehaviour
             dato = texto;
             fuente = "";
         }
-        tiempoDato = duracionTarjeta;
+
+        int palabras = dato.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length;
+        float tiempoCalculado = (palabras * 0.42f) + margenLectura;
+        tiempoDato = Mathf.Clamp(tiempoCalculado, 6f, 13f);
         tiempoSinDato = 0f;
+        CalcularSiguientePausa();
     }
 
     // ------------------------------------------------------------------
@@ -589,7 +605,7 @@ public class GuiaEducativa : MonoBehaviour
 
         if (enInicio)
         {
-            GUI.depth = -10; // por encima de las barras
+            GUI.depth = -10;
             DibujarInicio(ancho);
         }
         else if (enTutorial)
@@ -611,7 +627,6 @@ public class GuiaEducativa : MonoBehaviour
         GUI.matrix = Matrix4x4.identity;
     }
 
-    // Letrero en español sobre cada puerta del pasillo (solo cuando el astronauta está en el pasillo)
     void DibujarNombresPuertas(float escala)
     {
         if (!mostrarNombresPuertas || salaActual != -1) return;
@@ -652,49 +667,55 @@ public class GuiaEducativa : MonoBehaviour
         }
     }
 
-    // Zona libre arriba, entre el panel de barras (izquierda) y el del Sol (derecha)
-    Rect ZonaTarjeta(float ancho, float alto)
+    Rect ZonaTarjeta(float ancho, float alto, float anchoMax = 560f)
     {
-        float izquierda = 12f + 440f * tamanoBarras + 12f;
-        Rect r = new Rect(izquierda, 12f, ancho - izquierda - 264f, alto);
-        if (r.width < 380f) r = new Rect(12f, 12f + 300f * tamanoBarras + 10f, ancho - 24f, alto);
+        float izquierda = 12f + 440f * tamanoBarras + 14f;
+        float anchoDisponible = ancho - izquierda - 266f;
+
+        float anchoCaja = Mathf.Min(anchoDisponible, anchoMax);
+        float xCaja = izquierda + (anchoDisponible - anchoCaja) * 0.5f;
+
+        Rect r = new Rect(xCaja, 12f, anchoCaja, alto);
+        if (anchoDisponible < 340f)
+            r = new Rect(12f, 12f + 300f * tamanoBarras + 10f, Mathf.Min(ancho - 24f, anchoMax), alto);
+
         return r;
     }
 
     void DibujarDato(float ancho)
     {
-        Rect r = ZonaTarjeta(ancho, 232f);
+        Rect r = ZonaTarjeta(ancho, 155f, 560f);
 
-        Caja(r, new Color(0.05f, 0.1f, 0.2f, 0.92f));
-        Caja(new Rect(r.x, r.y, 8f, r.height), new Color(1f, 0.8f, 0.2f));
+        Caja(r, new Color(0.04f, 0.08f, 0.16f, 0.96f));
+        Caja(new Rect(r.x, r.y, 6f, r.height), new Color(1f, 0.8f, 0.2f));
 
         GUI.color = new Color(1f, 0.8f, 0.2f);
-        GUI.Label(new Rect(r.x + 22f, r.y + 8f, r.width - 34f, 30f), "¿SABÍAS QUE...?", estiloEtiqueta);
+        GUI.Label(new Rect(r.x + 16f, r.y + 6f, r.width - 28f, 24f), "¿SABÍAS QUE...?", estiloEtiqueta);
         GUI.color = Color.white;
-        GUI.Label(new Rect(r.x + 22f, r.y + 40f, r.width - 34f, r.height - 72f), dato, estiloDato);
+        GUI.Label(new Rect(r.x + 16f, r.y + 32f, r.width - 28f, r.height - 58f), dato, estiloDato);
 
         if (!string.IsNullOrEmpty(fuente))
         {
             GUI.color = new Color(0.7f, 0.85f, 1f);
-            GUI.Label(new Rect(r.x + 22f, r.y + r.height - 28f, r.width - 34f, 24f), "Fuente: " + fuente, estiloFuente);
+            GUI.Label(new Rect(r.x + 16f, r.y + r.height - 24f, r.width - 28f, 20f), "Fuente: " + fuente, estiloFuente);
             GUI.color = Color.white;
         }
     }
 
     void DibujarTutorial(float ancho)
     {
-        Rect r = ZonaTarjeta(ancho, 300f);
+        Rect r = ZonaTarjeta(ancho, 126f, 500f);
 
-        Caja(r, new Color(0.08f, 0.2f, 0.1f, 0.94f));
-        Caja(new Rect(r.x, r.y, 8f, r.height), new Color(0.5f, 1f, 0.5f));
+        Caja(r, new Color(0.05f, 0.15f, 0.07f, 0.96f));
+        Caja(new Rect(r.x, r.y, 6f, r.height), new Color(0.5f, 1f, 0.5f));
 
         GUI.color = new Color(0.5f, 1f, 0.5f);
-        GUI.Label(new Rect(r.x + 22f, r.y + 8f, r.width - 34f, 30f), "TUTORIAL (el tiempo está detenido)", estiloEtiqueta);
+        GUI.Label(new Rect(r.x + 14f, r.y + 5f, r.width - 24f, 22f), "TUTORIAL (pausa)", estiloEtiqueta);
         GUI.color = Color.white;
-        GUI.Label(new Rect(r.x + 22f, r.y + 40f, r.width - 34f, r.height - 72f), TextoTutorial(), estiloDato);
+        GUI.Label(new Rect(r.x + 14f, r.y + 28f, r.width - 24f, r.height - 50f), TextoTutorial(), estiloTutorial);
 
-        GUI.color = new Color(0.8f, 0.8f, 0.8f);
-        GUI.Label(new Rect(r.x + 22f, r.y + r.height - 28f, r.width - 34f, 24f), "Tecla T: saltar el tutorial", estiloFuente);
+        GUI.color = new Color(0.8f, 0.85f, 0.8f);
+        GUI.Label(new Rect(r.x + 14f, r.y + r.height - 22f, r.width - 24f, 18f), "Pulsa T para saltar", estiloFuente);
         GUI.color = Color.white;
     }
 
@@ -711,17 +732,16 @@ public class GuiaEducativa : MonoBehaviour
 
             if (enPortada)
             {
-                // Portada: solo el arte y el aviso para continuar
                 if (Mathf.Repeat(Time.unscaledTime, 1.2f) < 0.8f)
                 {
                     GUI.color = new Color(0.5f, 1f, 0.5f);
-                    GUI.Label(new Rect(0f, 610f, ancho, 50f), "Pulsa ESPACIO", estiloTitulo2());
+                    GUI.Label(new Rect(0f, 615f, ancho, 50f), "Pulsa ESPACIO", estiloTitulo2());
                     GUI.color = Color.white;
                 }
                 return;
             }
 
-            Caja(todo, new Color(0f, 0f, 0f, 0.75f));
+            Caja(todo, new Color(0f, 0f, 0f, 0.78f));
         }
 
         if (paginaInicio == 1)
@@ -850,17 +870,19 @@ public class GuiaEducativa : MonoBehaviour
         estiloTexto.wordWrap = true;
         estiloTexto.normal.textColor = Color.white;
 
-        // Texto grande de las tarjetas de datos y del tutorial
         estiloDato = new GUIStyle(estiloTexto);
-        estiloDato.fontSize = 25;
+        estiloDato.fontSize = 20;
+
+        estiloTutorial = new GUIStyle(estiloTexto);
+        estiloTutorial.fontSize = 19;
 
         estiloEtiqueta = new GUIStyle(estiloTexto);
-        estiloEtiqueta.fontSize = 20;
+        estiloEtiqueta.fontSize = 16;
         estiloEtiqueta.fontStyle = FontStyle.Bold;
         estiloEtiqueta.wordWrap = false;
 
         estiloFuente = new GUIStyle(estiloTexto);
-        estiloFuente.fontSize = 16;
+        estiloFuente.fontSize = 13;
         estiloFuente.wordWrap = false;
 
         estiloCentro = new GUIStyle(estiloTexto);

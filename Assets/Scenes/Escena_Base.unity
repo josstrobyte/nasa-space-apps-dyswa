@@ -5305,7 +5305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GuiaEducativa
   mostrarInicio: 1
-  fondoInicio: {fileID: 0}
+  fondoInicio: {fileID: 2800000, guid: c622f3ee08bafa64badccad5cbc27c78, type: 3}
   cuadrosFondo: 6
   cuadrosFondoPorSegundo: 4
   usarDonkiEnVivo: 1
@@ -5315,8 +5315,10 @@ MonoBehaviour:
   mostrarNombresPuertas: 1
   alturaNombres: 0.78
   tamanoBarras: 0.8
-  duracionTarjeta: 14
-  pausaEntreDatos: 8
+  margenLectura: 3.5
+  pausaMinimaEntreDatos: 22
+  pausaMaximaEntreDatos: 35
+  enfriamientoAlEntrarSala: 14
 --- !u!114 &1586610386
 MonoBehaviour:
   m_ObjectHideFlags: 0
