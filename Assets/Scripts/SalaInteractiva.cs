@@ -17,6 +17,9 @@ public class SalaInteractiva : MonoBehaviour
 [Header("Minijuego de energía")]
 [SerializeField] MinijuegoPaneles limpiezaPaneles;
 
+[Header("Minijuego de soporte vital")]
+[SerializeField] MinijuegoOxigeno reparacionOxigeno;
+
     [Header("Arte (opcional)")]
     [SerializeField] GameObject capaNormal;
     [SerializeField] GameObject capaFalla;
@@ -99,6 +102,13 @@ if (sala == Sala.Energia &&
     if (!limpiezaPaneles.Abierto)
         limpiezaPaneles.Abrir();
 }
+else if (sala == Sala.Soporte &&
+         reparacionOxigeno != null &&
+         !gm.EstaActiva(Sala.Soporte))
+{
+    if (!reparacionOxigeno.Abierto)
+        reparacionOxigeno.Abrir();
+}
 else
 {
     gm.AlternarSala(sala);
@@ -170,8 +180,12 @@ string texto =
     limpiezaPaneles != null &&
     limpiezaPaneles.Sucios
     ? "[E] Limpiar paneles"
-    : (gm.EstaActiva(sala) ? "[E] Apagar " : "[E] Encender ")
-      + NombreSistema();
+    : sala == Sala.Soporte &&
+      reparacionOxigeno != null &&
+      !gm.EstaActiva(Sala.Soporte)
+      ? "[E] Reparar regulador"
+      : (gm.EstaActiva(sala) ? "[E] Apagar " : "[E] Encender ")
+        + NombreSistema();
 
         Vector3 basePos = jugador != null ? jugador.position : transform.position;
         Vector3 p = camara.WorldToScreenPoint(basePos + Vector3.up * alturaLetrero);

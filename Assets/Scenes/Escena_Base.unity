@@ -2069,6 +2069,7 @@ GameObject:
   m_Component:
   - component: {fileID: 569794410}
   - component: {fileID: 569794409}
+  - component: {fileID: 569794411}
   m_Layer: 0
   m_Name: ControlMinijuegos
   m_TagString: Untagged
@@ -2106,6 +2107,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &569794411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569794408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d09f495aa221b4488d6fcfe89a5f71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MinijuegoOxigeno
+  velocidadAguja: 0.75
+  anchoZonaVerde: 0.2
 --- !u!1 &599653651
 GameObject:
   m_ObjectHideFlags: 0
@@ -2630,6 +2645,7 @@ MonoBehaviour:
   mitadAnchoSala: 5.2
   alturaLetrero: 1.6
   limpiezaPaneles: {fileID: 0}
+  reparacionOxigeno: {fileID: 0}
   capaNormal: {fileID: 1133313345}
   capaFalla: {fileID: 1079330150}
   capaAlarma: {fileID: 171305618}
@@ -3131,6 +3147,7 @@ MonoBehaviour:
   mitadAnchoSala: 5.2
   alturaLetrero: 1.6
   limpiezaPaneles: {fileID: 0}
+  reparacionOxigeno: {fileID: 569794411}
   capaNormal: {fileID: 1312569505}
   capaFalla: {fileID: 2132645951}
   capaAlarma: {fileID: 171305618}
@@ -6202,6 +6219,7 @@ MonoBehaviour:
   mitadAnchoSala: 5.2
   alturaLetrero: 1.6
   limpiezaPaneles: {fileID: 569794409}
+  reparacionOxigeno: {fileID: 0}
   capaNormal: {fileID: 896442763}
   capaFalla: {fileID: 963535139}
   capaAlarma: {fileID: 104679169}
@@ -6346,6 +6364,7 @@ MonoBehaviour:
   mitadAnchoSala: 5.2
   alturaLetrero: 1.6
   limpiezaPaneles: {fileID: 0}
+  reparacionOxigeno: {fileID: 0}
   capaNormal: {fileID: 599653651}
   capaFalla: {fileID: 1642252610}
   capaAlarma: {fileID: 0}
