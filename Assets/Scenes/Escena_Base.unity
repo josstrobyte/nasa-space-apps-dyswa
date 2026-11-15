@@ -5371,6 +5371,7 @@ GameObject:
   - component: {fileID: 1613960570}
   - component: {fileID: 1613960574}
   - component: {fileID: 1613960573}
+  - component: {fileID: 1613960575}
   m_Layer: 0
   m_Name: Astronauta
   m_TagString: Player
@@ -5416,7 +5417,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5625, y: 3.875}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 1.5625, y: 3.875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -5545,6 +5546,31 @@ MonoBehaviour:
   animator: {fileID: 0}
   sprite: {fileID: 1613960571}
   voltearSpriteEnX: 1
+--- !u!114 &1613960575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613960569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 623dd3f44a7db4f49b0e0b4699f55f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimacionCaminar
+  cuadrosCaminar:
+  - {fileID: -2539525528250286257, guid: 26c1d5337c2e6564db76741418b95219, type: 3}
+  - {fileID: 2465701901634845580, guid: 26c1d5337c2e6564db76741418b95219, type: 3}
+  - {fileID: 3761390792361387080, guid: 26c1d5337c2e6564db76741418b95219, type: 3}
+  - {fileID: 9137461502433697942, guid: 26c1d5337c2e6564db76741418b95219, type: 3}
+  cuadrosPorSegundoCaminar: 8
+  cuadrosQuieto:
+  - {fileID: 815424164945274260, guid: 61be6a7dd658c8a4aa5de905e13afc48, type: 3}
+  - {fileID: 815424164945274260, guid: 61be6a7dd658c8a4aa5de905e13afc48, type: 3}
+  - {fileID: -270785710348516584, guid: 61be6a7dd658c8a4aa5de905e13afc48, type: 3}
+  - {fileID: 8443794771774750484, guid: 61be6a7dd658c8a4aa5de905e13afc48, type: 3}
+  - {fileID: 1777182293076053196, guid: 61be6a7dd658c8a4aa5de905e13afc48, type: 3}
+  cuadrosPorSegundoQuieto: 4
 --- !u!1 &1617985596
 GameObject:
   m_ObjectHideFlags: 0
